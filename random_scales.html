@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Random Music Scales</title>
+        <!--
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+        -->
+
+	</head>
+	<body>
+        <p id="major">Major Scale: A</p>
+        <p id="natural minor">Natural Minor Scale: A</p>
+        <p id="harmonic minor">Harmonic Minor Scale: A</p>
+    <script>
+        let note_names = [
+            "A",
+            "A♯/B♭",
+            "B/C♭",
+            "B♯/C",
+            "C♯/D♭",
+            "D",
+            "D♯/E♭",
+            "E/F♭",
+            "E♯/F",
+            "F♯/G♭",
+            "G",
+            "G♯/A♭",
+        ];
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min) + min);
+        };
+
+        function setNote(id, text) {
+            note = note_names[getRandomInt(0, note_names.length)];
+            final_text = text + ": " + note;
+            document.getElementById(id).innerHTML = final_text;
+        };
+
+        function setAll() {
+            setNote("major", "Major Scale");
+            setNote("natural minor", "Natural Minor");
+            setNote("harmonic minor", "Harmonic Minor");
+        }
+        
+        setAll();
+    </script>
+        <button type="button" onclick="setAll()">Reset</button>
+	</body>
+</html>
